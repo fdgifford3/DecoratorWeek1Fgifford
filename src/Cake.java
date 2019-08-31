@@ -1,3 +1,5 @@
+
+
 // Base abstract Cake class for our abstract decorator 
 // And our concrete specific cake types to extend
 public abstract class Cake {
@@ -8,8 +10,21 @@ public abstract class Cake {
 	Size size = Size.FOUR;
 	String description = "Unknown Cake Type";
 	
+	// Add size to end of description in Cake abstract class 
+	// So it cascades to all concrete cakes
 	public String getDescription() {
-		return description;
+		String desc = description;
+		
+		if (this.size == Size.FOUR) {
+			desc += " Four Inch";
+		} else if (this.size == Size.SIX) {
+			desc += " Six Inch";
+		} else if (this.size == Size.EIGHT) {
+			desc += " Eight Inch";
+		} else if (this.size == Size.TEN) {
+			desc += " Ten Inch";
+		}
+		return desc;
 	}
 	
 	public void setSize(Size size) {
